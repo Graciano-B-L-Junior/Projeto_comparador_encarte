@@ -7,7 +7,7 @@ import os # Importado para verificar se o arquivo de imagem existe
 # você pode precisar descomentar a linha abaixo e ajustar o caminho
 # para o local onde você instalou o Tesseract OCR.
 # Exemplo:
-# pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+#pytesseract.pytesseract.tesseract_cmd = r'/usr/share/tesseract-ocr/4.00/tessdata'
 
 def verificar_instalacao_tesseract():
     """Tenta verificar se o Tesseract está acessível."""
@@ -79,7 +79,8 @@ if __name__ == "__main__":
         # --- IMPORTANTE: Configure o caminho da sua imagem de teste aqui ---
         # Coloque uma imagem chamada "minha_imagem_teste.png" no mesmo diretório do script
         # ou substitua pelo caminho completo da sua imagem.
-        caminho_imagem_teste = "teste.png"
+        diretorio_atual = os.path.dirname(__file__)
+        caminho_imagem_teste = os.path.join(diretorio_atual, "teste.png")
 
         print(f"\nTentando processar a imagem: '{caminho_imagem_teste}'")
         # Você pode mudar o idioma se sua imagem estiver em inglês (ex: 'eng')
